@@ -216,7 +216,9 @@
             }
             
             .top {
-                height: 20%;
+                background: url(images/fruits-1193727_1280.png);
+                background-repeat: no-repeat;
+                background-position: center;
             }
             
             .display-4 {
@@ -225,20 +227,35 @@
             }
             
             .jumbotron {
-                background-color: #fbf0a6;
-                padding: 2rem 2rem;
+                background-color: #fff;
+                padding: 4rem 4rem;
+                margin-bottom: 0;
             }
             
             button{
                 background: url(./1.jpeg) no-repeat scroll 0 0 transparent;
                 height: 300px;
                 width: 300px;
-                font-size: 30px;
-                color:white;
+                font-size: 24px;
+                color: #fff;
+                border-radius: 24px;
+            }
+            
+            .container {
+                background-color: rgba(255,255,255,0.7);
             }
             
             h1 {
                 font-size: 1.8rem;
+            }
+            
+            .top_container {
+                width: 50%;
+            }
+            
+            .choice_text {
+                background-color: rgba(0,0,0,0.6);
+                margin-top: 210px;
             }
             
             .col-lg-6 {
@@ -251,7 +268,6 @@
             
             .content2{
                 display: none;
-
             }        
             
             .content3{
@@ -291,9 +307,9 @@
     <body>
         <div class="top jumbotron jumbotron-fluid">
              <div class="text-center">
-                  <div class="container">
+                  <div class="top_container container">
                     <h1 class="display-4">과일 MBTI</h1>
-                    <p class="lead">과일을 어떻게 드시나요?<br>과일 성향으로 나의 MBTI 확인하기.</p>
+                    <h3 class="lead">과일을 어떻게 드시나요?</h3>
                   </div>
             </div>
         </div>
@@ -309,13 +325,13 @@
                     
                     <div class="row">
                         <div class="col-lg-6 text-center">
-                            <button id="content1B1" value="E">농장에서 귤 따먹기</button>
+                            <button id="content1B1" value="E"><p class="choice_text">농장에서 귤 따먹기</p></button>
                         </div>
                         <br>
                         <br>
                         
                         <div class="col-lg-6 text-center">
-                            <button id="content1B2" value="I">집에서 귤 까먹기</button>
+                            <button id="content1B2" value="I"><p class="choice_text">집에서 귤 까먹기</p></button>
                         </div>
                     </div>
                     
@@ -331,13 +347,13 @@
                     
                     <div class="row">
                         <div class="col-lg-6 text-center">
-                            <button id="content1B3" value="S">사과 한박스</button>
+                            <button id="content1B3" value="S"><p class="choice_text">사과 한박스</p></button>
                         </div>
                         <br>
                         <br>
                         
                         <div class="col-lg-6 text-center">
-                            <button id="content1B4" value="N">희귀 열대과일</button>
+                            <button id="content1B4" value="N"><p class="choice_text">희귀 열대과일</p></button>
                         </div>
                     </div>
                     
@@ -353,13 +369,13 @@
                     
                     <div class="row">
                         <div class="col-lg-6 text-center">
-                            <button id="content1B5" value="T">조금 못생겨도 맛있는 과일이 좋아</button>
+                            <button id="content1B5" value="T"><p class="choice_text">조금 못생겨도 맛있는 과일이 좋아</p></button>
                         </div>
                         <br>
                         <br>
                         
                         <div class="col-lg-6 text-center">
-                            <button id="content1B6" value="F">무슨 소리야! 보기 좋은 과일이 맛도 좋지</button>
+                            <button id="content1B6" value="F"><p class="choice_text">무슨 소리야! 보기 좋은 과일이 맛도 좋지</p></button>
                         </div>
                     </div>
                     
@@ -375,13 +391,13 @@
                     
                     <div class="row">
                         <div class="col-lg-6 text-center">
-                            <button id="content1B7" value="J">청과점에 가기 전에 살 과일을 정해놓고 그것만 사러간다</button>
+                            <button id="content1B7" value="J"><p class="choice_text">살 과일을 정해놓고 그것만 사러간다</p></button>
                         </div>
                         <br>
                         <br>
                         
                         <div class="col-lg-6 text-center">
-                            <button id="content1B8" value="P">가보고 끌리는 과일을 산다</button>
+                            <button id="content1B8" value="P"><p class="choice_text">가보고 끌리는 과일을 산다</p></button>
                         </div>
                     </div>
                 </div>
