@@ -5,6 +5,13 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device=width, initial-scale=1">
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PV48BB5');</script>
+            <!-- End Google Tag Manager -->
         <title>MBTI Test</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -30,7 +37,7 @@
 
             ENTP : 논쟁을 즐기는 변론가 -> 감
 
-            ENFJ : 정의로운 사회운동가 -> 딸기
+            ENFJ : 정의로운 사회운동가 -> 딸기 
 
             ENFP : 재기발랄한 활동가 -> 바나나
 
@@ -45,67 +52,24 @@
             $(function(){
                 var result = '';
                 var resultArr = [
-                    {
-                        "Type":"ESTJ",
-                        "Content":"엄격한 관리자",
-                        "Fruit":"라임",
-                    },
-                    {
-                        "Type":"ESTP",
-                        "Content":"모험을 즐기는 사업가",
-                        "Fruit":"오렌지",
-                    },
-                    {
-                        "Type":"ESFJ",
-                        "Content":"사교적인 외교관",
-                        "Fruit":"수박",
-                    },
-                    {
-                        "Type":"ESFP",
-                        "Content":"자유로운 영혼의 연예인",
-                        "Fruit":"체리",
-                    },
-                    {
-                        "Type":"ENTJ",
-                        "Content":"대담한 통솔자",
-                        "Fruit":"복숭아",
-                    },
-                    {
-                        "Type":"ENTP",
-                        "Content":"논쟁을 즐기는 변론가",
-                        "Fruit":"감",
-                    },
-                    {
-                        "Type":"ENFJ",
-                        "Content":"정의로운 사회운동가",
-                        "Fruit":"딸기",
-                    },
-                    {
-                        "Type":"ENFP",
-                        "Content":"재기발랄한 활동가",
-                        "Fruit":"바나나",
-                    },
-                    {
-                        "Type":"ISTJ",
-                        "Content":"청렴결백 논리주의자",
-                        "Fruit":"배",
-                    },
-                    {
-                        "Type":"ISTP",
-                        "Content":"만능 재주꾼",
-                        "Fruit":"망고",
-                    },
-                    {
-                        "Type":"ISFJ",
-                        "Content":"용감한 수호자",
-                        "Fruit":"사과",
-                    },
-                    {
-                        "Type":"ISFP",
-                        "Content":"호기심 많은 예술가",
-                        "Fruit":"포도",
-                    }
-                ]
+                    {"Type":"ESTJ","Content":"엄격한 관리자","Fruit":"라임"},
+                    {"Type":"ESTP","Content":"모험을 즐기는 사업가","Fruit":"오렌지"},
+                    {"Type":"ESFJ","Content":"사교적인 외교관","Fruit":"수박"},
+                    {"Type":"ESFP","Content":"자유로운 영혼의 연예인","Fruit":"체리"},
+                    {"Type":"ENTJ","Content":"대담한 통솔자","Fruit":"복숭아"},
+                    {"Type":"ENTP","Content":"논쟁을 즐기는 변론가","Fruit":"감"},
+                    {"Type":"ENFJ","Content":"정의로운 사회운동가","Fruit":"딸기"},
+                    {"Type":"ENFP","Content":"재기발랄한 활동가","Fruit":"바나나"},
+                    {"Type":"ISTJ","Content":"청렴결백 논리주의자","Fruit":"배"},
+                    {"Type":"ISTP","Content":"만능 재주꾼","Fruit":"망고"},
+                    {"Type":"ISFJ","Content":"용감한 수호자","Fruit":"사과"},
+                    {"Type":"ISFP","Content":"호기심 많은 예술가","Fruit":"포도"}];
+
+                $('#content1B1').click(function(){
+                    result += $('#content1B1').val();
+                    $('.content').hide();
+                    $('.content2').show();
+                });
 
                 $('#content1B1').click(function(){
                     result += $('#content1B1').val();
@@ -135,6 +99,17 @@
                     $('.content4').show();
                 });
                 $('#content1B6').click(function(){
+                    result += $('#content1B6').val();
+                    $('.content3').hide();
+                    $('.content4').show();
+                });
+
+                $('#content1B7').click(function(){
+                    result += $('#content1B5').val();
+                    $('.content3').hide();
+                    $('.content4').show();
+                });
+                $('#content1B8').click(function(){
                     result += $('#content1B6').val();
                     $('.content3').hide();
                     $('.content4').show();
@@ -301,10 +276,13 @@
             #content1B2 {
                 background: url(./tangerine.png) no-repeat scroll 0 0 transparent;
             }
-*/
         </style>
     </head>
     <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PV48BB5"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
         <div class="top jumbotron jumbotron-fluid">
              <div class="text-center">
                   <div class="top_container container">
@@ -316,7 +294,39 @@
         
         <br>
         <br>
-        
+
+        <div class="text-center">
+            <div class="content container container-fluid">
+                <div class="jumbotron jumbotron-fluid">
+                    <h1>자기소개</h1>
+                    <br><br>
+                    <select name="age">
+                        <option value="10">10대</option>
+                        <option value="20">20대</option>
+                        <option value="30">30대</option>
+                        <option value="40">40대</option>
+                        <option value="50">50대</option>
+                        <option value="60">60대</option>
+                        <option value="70">70대</option>
+                        <option value="80">80대</option>
+                        <option value="90">90대</option>
+                    </select>
+                    <div class="row">
+                        <div class="col-lg-6 text-center">
+                            <button id="content1B1" value="male"><p class="choice_text">남성</p></button>
+                        </div>
+                        <br>
+                        <br>
+                        
+                        <div class="col-lg-6 text-center">
+                            <button id="content1B2" value="female"><p class="choice_text">여성</p></button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
         <div class="text-center">
             <div class="content container container-fluid">
                 <div class="jumbotron jumbotron-fluid">
@@ -337,7 +347,7 @@
                     
                 </div>
             </div>
-        </div>        
+        </div>    
         
         <div class="text-center">
             <div class="content2 container container-fluid">
@@ -402,7 +412,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>    
         
         <div class="text-center">
             <div class="content5 container container-fluid">
