@@ -18,35 +18,21 @@
         <script>
             /*
             질문 1 : 농장에서 귤 따먹기 (E) vs 집에서 귤 까먹기 (I)
-
             질문 2 : 5만원이 있을 때, 사과 한박스 (S) vs 희귀 열대과일 1개 (N)
-
             질문 3 : 조금 못생겨도 맛있는 과일이 좋아 (T) vs 무슨소리야! 보기 좋은 과일이 맛도 좋지! (F)
-
             질문 4 : 청과점에 가기 전에 살 과일을 정해놓고 그것만 사러간다 (J) vs 가보고 끌리는 과일을 산다 (P)
 
             ESTJ : 엄격한 관리자 -> 라임
-
             ESTP : 모험을 즐기는 사업가 -> 오렌지
-
             ESFJ : 사교적인 외교관 -> 수박
-
             ESFP : 자유로운 영혼의 연예인 -> 체리
-
             ENTJ : 대담한 통솔자 -> 복숭아
-
             ENTP : 논쟁을 즐기는 변론가 -> 감
-
             ENFJ : 정의로운 사회운동가 -> 딸기 
-
             ENFP : 재기발랄한 활동가 -> 바나나
-
             ISTJ : 청렴결백 논리주의자 -> 배
-
             ISTP : 만능 재주꾼 -> 망고
-
             ISFJ : 용감한 수호자 -> 사과
-
             ISFP : 호기심 많은 예술가 -> 포도
             */
             $(function(){
@@ -125,6 +111,7 @@
                     $('#MBTI2').append('<p>'+i+'</p>');
                     $("#MBTI").attr("src", './1.jpeg');
                 });
+
                 $('#content1B8').click(function(){
                     result += $('#content1B8').val();
                     $('.content4').hide();
@@ -140,16 +127,16 @@
 
         function a(a) {
             var site = a;
-            $.ajax({
-                type: "POST",
-                url: 'http://3.34.199.243:3000/test',
-                data: {
-                    Shared:0,
-                    Channel:site
-                },
-                data : console.log(data),
-                dataType: JSON
-            });
+            // $.ajax({
+            //     type: "POST",
+            //     url: 'http://3.34.199.243:3000/test',
+            //     data: {
+            //         Shared:0,
+            //         Channel:site
+            //     },
+            //     data : console.log(data),
+            //     dataType: JSON
+            // });
             switch (site) {
                 case 'naver' :
                     console.log("naver");
