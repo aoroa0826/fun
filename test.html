@@ -7,11 +7,11 @@
         <meta name="viewport" content="width=device=width, initial-scale=1">
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-PV48BB5');</script>
-            <!-- End Google Tag Manager -->
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PV48BB5');</script>
+        <!-- End Google Tag Manager -->
         <title>MBTI Test</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -37,6 +37,7 @@
             */
             $(function(){
                 var result = '';
+                var info = '';
                 var resultArr = [
                     {"Type":"ESTJ","Content":"엄격한 관리자","Fruit":"라임"},
                     {"Type":"ESTP","Content":"모험을 즐기는 사업가","Fruit":"오렌지"},
@@ -49,23 +50,27 @@
                     {"Type":"ISTJ","Content":"청렴결백 논리주의자","Fruit":"배"},
                     {"Type":"ISTP","Content":"만능 재주꾼","Fruit":"망고"},
                     {"Type":"ISFJ","Content":"용감한 수호자","Fruit":"사과"},
-                    {"Type":"ISFP","Content":"호기심 많은 예술가","Fruit":"포도"}];
-
+                    {"Type":"ISFP","Content":"호기심 많은 예술가","Fruit":"포도"}
+                ];
                 $('#content1B1').click(function(){
                     result += $('#content1B1').val();
-                    $('.content').hide();
-                    $('.content2').show();
-                });
-
-                $('#content1B1').click(function(){
-                    result += $('#content1B1').val();
-                    $('.content').hide();
-                    $('.content2').show();
+                    info = $("#age option:selected").val();
+                    if(info === 'none'){
+                        alert('나이를 선택해주세요');
+                    }else{
+                        $('.content1').hide();
+                        $('.content2').show();
+                    }
                 });
                 $('#content1B2').click(function(){
                     result += $('#content1B2').val();
-                    $('.content').hide();
-                    $('.content2').show();
+                    info = $("#age option:selected").val();
+                    if(info === 'none'){
+                        alert('나이를 선택해주세요');
+                    }else{
+                        $('.content1').hide();
+                        $('.content2').show();
+                    }
                 });
 
                 $('#content1B3').click(function(){
@@ -91,32 +96,30 @@
                 });
 
                 $('#content1B7').click(function(){
-                    result += $('#content1B5').val();
-                    $('.content3').hide();
-                    $('.content4').show();
-                });
-                $('#content1B8').click(function(){
-                    result += $('#content1B6').val();
-                    $('.content3').hide();
-                    $('.content4').show();
-                });
-
-                $('#content1B7').click(function(){
                     result += $('#content1B7').val();
                     $('.content4').hide();
                     $('.content5').show();
+                });
+                $('#content1B8').click(function(){
+                    result += $('#content1B8').val();
+                    $('.content4').hide();
+                    $('.content5').show();
+                });
+
+                $('#content1B9').click(function(){
+                    result += $('#content1B9').val();
+                    $('.content5').hide();
+                    $('.content6').show();
                     var j = resultArr.find(x => x.Type === result).Type;
                     var i = resultArr.find(x => x.Type === result).Content
                     $('#MBTI2').append('<p>'+j+'</p>');
                     $('#MBTI2').append('<p>'+i+'</p>');
                     $("#MBTI").attr("src", './1.jpeg');
                 });
-
-                $('#content1B8').click(function(){
-                    result += $('#content1B8').val();
-                    $('.content4').hide();
-                    $('.content5').show();
-                    $('#fb-share-button').show();
+                $('#content1B10').click(function(){
+                    result += $('#content1B10').val();
+                    $('.content5').hide();
+                    $('.content6').show();
                     var j = resultArr.find(x => x.Type === result).Type;
                     var i = resultArr.find(x => x.Type === result).Content;
                     $('#MBTI2').append('<p>'+j+'</p>');
@@ -124,59 +127,42 @@
                     $("#MBTI").attr("src", './1.jpeg');
                 });
             });
-
-        function a(a) {
-            var site = a;
-            // $.ajax({
-            //     type: "POST",
-            //     url: 'http://3.34.199.243:3000/test',
-            //     data: {
-            //         Shared:0,
-            //         Channel:site
-            //     },
-            //     data : console.log(data),
-            //     dataType: JSON
-            // });
-            switch (site) {
-                case 'naver' :
-                    console.log("naver");
-                    window.open('http://share.naver.com/web/shareView.nhn?url=' +encodeURIComponent(document.URL)+'&title='+encodeURIComponent(document.title), 'naversharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-                    return false;
-                break;
-                case 'fb' :
-                    console.log("fb");
-                    window.open('https://www.facebook.com/sharer/sharer.php?u=' +encodeURIComponent(document.URL)+'&t='+encodeURIComponent(document.title), 'facebooksharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-                    return false;
-                break;
-                case 'tw' :
-                    console.log("tw");
-                    window.open('https://twitter.com/intent/tweet?text=[%EA%B3%B5%EC%9C%A0]%20' +encodeURIComponent(document.URL)+'%20-%20'+encodeURIComponent(document.title), 'twittersharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-                    return false;
-                break;
-                case 'google' :
-                    console.log("google");
-                    window.open('https://plus.google.com/share?url=' +encodeURIComponent(document.URL), 'googleplussharedialog','menubar=no,toolbar=no,resizable=yes, scrollbars=yes,height=350,width=600');
-                    return false;
-                break;
-                case 'kakaotalk' :
-                    console.log("katalk");
-                break;
-                case 'story' :
-                    console.log("kastory");
-                    window.open('https://story.kakao.com/s/share?url=' +encodeURIComponent(document.URL), 'kakaostorysharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes, height=400,width=600');
-                    return false;
-                break;
+            function a(a) {
+                switch (site) {
+                    case 'naver' :
+                        console.log("naver");
+                        window.open('http://share.naver.com/web/shareView.nhn?url=' +encodeURIComponent(document.URL)+'&title='+encodeURIComponent(document.title), 'naversharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                        return false;
+                    break;
+                    case 'fb' :
+                        console.log("fb");
+                        window.open('https://www.facebook.com/sharer/sharer.php?u=' +encodeURIComponent(document.URL)+'&t='+encodeURIComponent(document.title), 'facebooksharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                        return false;
+                    break;
+                    case 'tw' :
+                        console.log("tw");
+                        window.open('https://twitter.com/intent/tweet?text=[%EA%B3%B5%EC%9C%A0]%20' +encodeURIComponent(document.URL)+'%20-%20'+encodeURIComponent(document.title), 'twittersharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                        return false;
+                    break;
+                    case 'google' :
+                        console.log("google");
+                        window.open('https://plus.google.com/share?url=' +encodeURIComponent(document.URL), 'googleplussharedialog','menubar=no,toolbar=no,resizable=yes, scrollbars=yes,height=350,width=600');
+                        return false;
+                    break;
+                    case 'kakaotalk' :
+                        console.log("katalk");
+                    break;
+                    case 'story' :
+                        console.log("kastory");
+                        window.open('https://story.kakao.com/s/share?url=' +encodeURIComponent(document.URL), 'kakaostorysharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes, height=400,width=600');
+                        return false;
+                    break;
+                }
             }
-        }
         </script>
         <style>
-            @media ( min-width: 768px) {
-
-            }
-            @media ( min-width: 1024px ) {
-
-            }
-            
+            @media ( min-width: 768px) {}
+            @media ( min-width: 1024px ) {}
             .top {
                 background: url(images/fruits-1193727_1280.png);
                 background-repeat: no-repeat;
@@ -224,7 +210,7 @@
                 text-align: center;
             }
 
-            .content{
+            .content1{
                 display: inline-block;
             }
             
@@ -240,6 +226,9 @@
                 display: none;
             }
             .content5{
+                display: none;
+            }
+            .content6{
                 display: none;
             }
 
@@ -269,7 +258,7 @@
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PV48BB5"
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-            <!-- End Google Tag Manager (noscript) -->
+        <!-- End Google Tag Manager (noscript) -->
         <div class="top jumbotron jumbotron-fluid">
              <div class="text-center">
                   <div class="top_container container">
@@ -283,11 +272,13 @@
         <br>
 
         <div class="text-center">
-            <div class="content container container-fluid">
+            <div class="content1 container container-fluid">
                 <div class="jumbotron jumbotron-fluid">
                     <h1>자기소개</h1>
-                    <br><br>
-                    <select name="age">
+                    <br>
+                    <br>
+                    <select id="age">
+                        <option value="none">선택하기</option>
                         <option value="10">10대</option>
                         <option value="20">20대</option>
                         <option value="30">30대</option>
@@ -304,105 +295,93 @@
                         </div>
                         <br>
                         <br>
-                        
                         <div class="col-lg-6 text-center">
                             <button id="content1B2" value="female"><p class="choice_text">여성</p></button>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
 
         <div class="text-center">
-            <div class="content container container-fluid">
-                <div class="jumbotron jumbotron-fluid">
-                    <h1>귤 : 농장 vs. 집</h1>
-                    <br><br>
-                    
-                    <div class="row">
-                        <div class="col-lg-6 text-center">
-                            <button id="content1B1" value="E"><p class="choice_text">농장에서 귤 따먹기</p></button>
-                        </div>
-                        <br>
-                        <br>
-                        
-                        <div class="col-lg-6 text-center">
-                            <button id="content1B2" value="I"><p class="choice_text">집에서 귤 까먹기</p></button>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>    
-        
-        <div class="text-center">
             <div class="content2 container container-fluid">
                 <div class="jumbotron jumbotron-fluid">
-                    <h1>새로운 과일 시도</h1>
-                    <br><br>
-                    
+                    <h1>귤 : 농장 vs. 집</h1>
+                    <br>
+                    <br>
                     <div class="row">
                         <div class="col-lg-6 text-center">
-                            <button id="content1B3" value="S"><p class="choice_text">사과 한박스</p></button>
+                            <button id="content1B3" value="E"><p class="choice_text">농장에서 귤 따먹기</p></button>
                         </div>
                         <br>
                         <br>
-                        
                         <div class="col-lg-6 text-center">
-                            <button id="content1B4" value="N"><p class="choice_text">희귀 열대과일</p></button>
+                            <button id="content1B4" value="I"><p class="choice_text">집에서 귤 까먹기</p></button>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
-                
+
         <div class="text-center">
             <div class="content3 container container-fluid">
                 <div class="jumbotron jumbotron-fluid">
-                    <h1>못생긴 과일 vs. 이쁜 과일</h1>
+                    <h1>새로운 과일 시도</h1>
                     <br><br>
-                    
                     <div class="row">
                         <div class="col-lg-6 text-center">
-                            <button id="content1B5" value="T"><p class="choice_text">조금 못생겨도 맛있는 과일이 좋아</p></button>
+                            <button id="content1B5" value="S"><p class="choice_text">사과 한박스</p></button>
                         </div>
                         <br>
                         <br>
-                        
                         <div class="col-lg-6 text-center">
-                            <button id="content1B6" value="F"><p class="choice_text">무슨 소리야! 보기 좋은 과일이 맛도 좋지</p></button>
+                            <button id="content1B6" value="N"><p class="choice_text">희귀 열대과일</p></button>
                         </div>
                     </div>
-                    
                 </div>
             </div>
-        </div>  
-                      
+        </div>
+
         <div class="text-center">
             <div class="content4 container container-fluid">
                 <div class="jumbotron jumbotron-fluid">
-                    <h1>먹고 싶은게 있어</h1>
+                    <h1>못생긴 과일 vs. 이쁜 과일</h1>
                     <br><br>
-                    
                     <div class="row">
                         <div class="col-lg-6 text-center">
-                            <button id="content1B7" value="J"><p class="choice_text">살 과일을 정해놓고 그것만 사러간다</p></button>
+                            <button id="content1B7" value="T"><p class="choice_text">조금 못생겨도 맛있는 과일이 좋아</p></button>
                         </div>
                         <br>
                         <br>
-                        
                         <div class="col-lg-6 text-center">
-                            <button id="content1B8" value="P"><p class="choice_text">가보고 끌리는 과일을 산다</p></button>
+                            <button id="content1B8" value="F"><p class="choice_text">무슨 소리야! 보기 좋은 과일이 맛도 좋지</p></button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>    
-        
+        </div>  
+
         <div class="text-center">
             <div class="content5 container container-fluid">
+                <div class="jumbotron jumbotron-fluid">
+                    <h1>먹고 싶은게 있어</h1>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-lg-6 text-center">
+                            <button id="content1B9" value="J"><p class="choice_text">살 과일을 정해놓고 그것만 사러간다</p></button>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-lg-6 text-center">
+                            <button id="content1B10" value="P"><p class="choice_text">가보고 끌리는 과일을 산다</p></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <div class="content6 container container-fluid">
                 <div class="jumbotron jumbotron-fluid">
                     <img id="MBTI" src=""/>
                     <div id="MBTI2"></div>
