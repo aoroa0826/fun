@@ -36,6 +36,7 @@
             ISFP : 호기심 많은 예술가 -> 포도
             */
             $(function(){
+                var dataLayer = [];
                 var result = '';
                 var info = '';
                 var resultArr = [
@@ -278,25 +279,26 @@
                     <br>
                     <br>
                     <select id="age">
+                        <!--<a href="#" name="button1" onclick="dataLayer.push({'event': 'button1-click'});" >Button 1</a>-->
                         <option value="none">선택하기</option>
-                        <option value="10">10대</option>
-                        <option value="20">20대</option>
-                        <option value="30">30대</option>
-                        <option value="40">40대</option>
-                        <option value="50">50대</option>
-                        <option value="60">60대</option>
-                        <option value="70">70대</option>
-                        <option value="80">80대</option>
-                        <option value="90">90대</option>
+                        <option onclick="dataLayer.push({'Age': '10s'});" value="10">10대</option>
+                        <option onclick="dataLayer.push({'Age': '20s'});" value="20">20대</option>
+                        <option onclick="dataLayer.push({'Age': '30s'});" value="30">30대</option>
+                        <option onclick="dataLayer.push({'Age': '40s'});" value="40">40대</option>
+                        <option onclick="dataLayer.push({'Age': '50s'});" value="50">50대</option>
+                        <option onclick="dataLayer.push({'Age': '60s'});" value="60">60대</option>
+                        <option onclick="dataLayer.push({'Age': '70s'});" value="70">70대</option>
+                        <option onclick="dataLayer.push({'Age': '80s'});" value="80">80대</option>
+                        <option onclick="dataLayer.push({'Age': '90s'});" value="90">90대</option>
                     </select>
                     <div class="row">
                         <div class="col-lg-6 text-center">
-                            <button id="content1B1" value="male"><p class="choice_text">남성</p></button>
+                            <button onclick="dataLayer.push({'Gender': 'male'});" id="content1B1" value="male"><p class="choice_text">남성</p></button>
                         </div>
                         <br>
                         <br>
                         <div class="col-lg-6 text-center">
-                            <button id="content1B2" value="female"><p class="choice_text">여성</p></button>
+                            <button onclick="dataLayer.push({'Gender': 'female'});" id="content1B2" value="female"><p class="choice_text">여성</p></button>
                         </div>
                     </div>
                 </div>
