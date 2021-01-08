@@ -53,6 +53,7 @@
                     {"Type":"ISFJ","Content":"용감한 수호자","Fruit":"사과"},
                     {"Type":"ISFP","Content":"호기심 많은 예술가","Fruit":"포도"}
                 ];
+                
                 $('#content1B1').click(function(){
                     result += $('#content1B1').val();
                     info = $("#age option:selected").val();
@@ -128,6 +129,11 @@
                     $("#MBTI").attr("src", './1.jpeg');
                 });
             });
+            function changeFunc() {
+                    var selectBox = document.getElementById("age");
+                    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+                    dataLayer.push({'Age': selectedValue});
+            }
             function a(a) {
                 switch (site) {
                     case 'naver' :
@@ -278,8 +284,8 @@
                     <h1>자기소개</h1>
                     <br>
                     <br>
-                    <select id="age">
-                        <!--<a href="#" name="button1" onclick="dataLayer.push({'event': 'button1-click'});" >Button 1</a>-->
+                    <!-- <select id="age">
+                        <a href="#" name="button1" onclick="dataLayer.push({'event': 'button1-click'});" >Button 1</a>
                         <option value="none">선택하기</option>
                         <option onclick="dataLayer.push({'Age': '10s'});" value="10">10대</option>
                         <option onclick="dataLayer.push({'Age': '20s'});" value="20">20대</option>
@@ -290,6 +296,18 @@
                         <option onclick="dataLayer.push({'Age': '70s'});" value="70">70대</option>
                         <option onclick="dataLayer.push({'Age': '80s'});" value="80">80대</option>
                         <option onclick="dataLayer.push({'Age': '90s'});" value="90">90대</option>
+                    </select> -->
+                    <select id="age" onchange="changeFunc();">
+                        <option value="none">선택하기</option>
+                        <option value="10s">10대</option>
+                        <option value="20s">20대</option>
+                        <option value="30s">30대</option>
+                        <option value="40s">40대</option>
+                        <option value="50s">50대</option>
+                        <option value="60s">60대</option>
+                        <option value="70s">70대</option>
+                        <option value="80s">80대</option>
+                        <option value="90s">90대</option>
                     </select>
                     <div class="row">
                         <div class="col-lg-6 text-center">
