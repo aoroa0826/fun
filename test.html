@@ -16,59 +16,43 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
         <script>
-            /*
-            질문 1 : 농장에서 귤 따먹기 (E) vs 집에서 귤 까먹기 (I)
-            질문 2 : 5만원이 있을 때, 사과 한박스 (S) vs 희귀 열대과일 1개 (N)
-            질문 3 : 조금 못생겨도 맛있는 과일이 좋아 (T) vs 무슨소리야! 보기 좋은 과일이 맛도 좋지! (F)
-            질문 4 : 청과점에 가기 전에 살 과일을 정해놓고 그것만 사러간다 (J) vs 가보고 끌리는 과일을 산다 (P)
-
-            ESTJ : 엄격한 관리자 -> 라임
-            ESTP : 모험을 즐기는 사업가 -> 오렌지
-            ESFJ : 사교적인 외교관 -> 수박
-            ESFP : 자유로운 영혼의 연예인 -> 체리
-            ENTJ : 대담한 통솔자 -> 복숭아
-            ENTP : 논쟁을 즐기는 변론가 -> 감
-            ENFJ : 정의로운 사회운동가 -> 딸기 
-            ENFP : 재기발랄한 활동가 -> 바나나
-            ISTJ : 청렴결백 논리주의자 -> 배
-            ISTP : 만능 재주꾼 -> 망고
-            ISFJ : 용감한 수호자 -> 사과
-            ISFP : 호기심 많은 예술가 -> 포도
-            */
             $(function(){
                 var result = '';
+                var gender = '';
                 var info = '';
                 var resultArr = [
-                    {"Type":"ESTJ","Content":"엄격한 관리자","Fruit":"라임"},
-                    {"Type":"ESTP","Content":"모험을 즐기는 사업가","Fruit":"오렌지"},
-                    {"Type":"ESFJ","Content":"사교적인 외교관","Fruit":"수박"},
-                    {"Type":"ESFP","Content":"자유로운 영혼의 연예인","Fruit":"체리"},
-                    {"Type":"ENTJ","Content":"대담한 통솔자","Fruit":"복숭아"},
-                    {"Type":"ENTP","Content":"논쟁을 즐기는 변론가","Fruit":"감"},
-                    {"Type":"ENFJ","Content":"정의로운 사회운동가","Fruit":"딸기"},
-                    {"Type":"ENFP","Content":"재기발랄한 활동가","Fruit":"바나나"},
-                    {"Type":"ISTJ","Content":"청렴결백 논리주의자","Fruit":"배"},
-                    {"Type":"ISTP","Content":"만능 재주꾼","Fruit":"망고"},
-                    {"Type":"ISFJ","Content":"용감한 수호자","Fruit":"사과"},
-                    {"Type":"ISFP","Content":"호기심 많은 예술가","Fruit":"포도"}
+                    {"type":"ESTJ","content":"엄격한 관리자","fruit":"라임"},
+                    {"type":"ESTP","content":"모험을 즐기는 사업가","fruit":"오렌지"},
+                    {"type":"ESFJ","content":"사교적인 외교관","fruit":"수박"},
+                    {"type":"ESFP","content":"자유로운 영혼의 연예인","fruit":"체리"},
+                    {"type":"ENTJ","content":"대담한 통솔자","fruit":"복숭아"},
+                    {"type":"ENTP","content":"논쟁을 즐기는 변론가","fruit":"감"},
+                    {"type":"ENFJ","content":"정의로운 사회운동가","fruit":"딸기"},
+                    {"type":"ENFP","content":"재기발랄한 활동가","fruit":"바나나"},
+                    {"type":"ISTJ","content":"청렴결백 논리주의자","fruit":"배"},
+                    {"type":"ISTP","content":"만능 재주꾼","fruit":"망고"},
+                    {"type":"ISFJ","content":"용감한 수호자","fruit":"사과"},
+                    {"type":"ISFP","content":"호기심 많은 예술가","fruit":"포도"}
                 ];
                 
                 $('#content1B1').click(function(){
-                    result += $('#content1B1').val();
+                    gender += $('#content1B1').val();
                     info = $("#age option:selected").val();
                     if(info === 'none'){
                         alert('나이를 선택해주세요');
                     }else{
+                        info = $("#age option:selected").val();
                         $('.content1').hide();
                         $('.content2').show();
                     }
                 });
                 $('#content1B2').click(function(){
-                    result += $('#content1B2').val();
+                    gender += $('#content1B2').val();
                     info = $("#age option:selected").val();
                     if(info === 'none'){
                         alert('나이를 선택해주세요');
                     }else{
+                        info = $("#age option:selected").val();
                         $('.content1').hide();
                         $('.content2').show();
                     }
@@ -111,28 +95,34 @@
                     result += $('#content1B9').val();
                     $('.content5').hide();
                     $('.content6').show();
-                    var j = resultArr.find(x => x.Type === result).Type;
-                    var i = resultArr.find(x => x.Type === result).Content
+                    var j = resultArr.find(x => x.type === result).type;
+                    var i = resultArr.find(x => x.type === result).content;
                     $('#MBTI2').append('<p>'+j+'</p>');
                     $('#MBTI2').append('<p>'+i+'</p>');
                     $("#MBTI").attr("src", './1.jpeg');
+                    //현재 주소를 가져온다.
+                    var renewURL = location.href;
+                    renewURL += '&type='+j+'&gender='+gender+'&age='+info;
+                    //페이지 갱신 실행!
+                    history.pushState(null, null, renewURL);
                 });
                 $('#content1B10').click(function(){
                     result += $('#content1B10').val();
                     $('.content5').hide();
                     $('.content6').show();
-                    var j = resultArr.find(x => x.Type === result).Type;
-                    var i = resultArr.find(x => x.Type === result).Content;
+                    var j = resultArr.find(x => x.type === result).type;
+                    var i = resultArr.find(x => x.type === result).content;
                     $('#MBTI2').append('<p>'+j+'</p>');
                     $('#MBTI2').append('<p>'+i+'</p>');
                     $("#MBTI").attr("src", './1.jpeg');
+                    //현재 주소를 가져온다.
+                    var renewURL = location.href;
+                    renewURL += '&type='+j+'&gender='+gender+'&age='+info;
+                    //페이지 갱신 실행!
+                    history.pushState(null, null, url);
                 });
             });
-            function changeFunc() {
-                    var selectBox = document.getElementById("age");
-                    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-                    dataLayer.push({'Age': selectedValue});
-            }
+
             function a(a) {
                 switch (site) {
                     case 'naver' :
@@ -283,20 +273,7 @@
                     <h1>자기소개</h1>
                     <br>
                     <br>
-                    <!-- <select id="age">
-                        <a href="#" name="button1" onclick="dataLayer.push({'event': 'button1-click'});" >Button 1</a>
-                        <option value="none">선택하기</option>
-                        <option onclick="dataLayer.push({'Age': '10s'});" value="10">10대</option>
-                        <option onclick="dataLayer.push({'Age': '20s'});" value="20">20대</option>
-                        <option onclick="dataLayer.push({'Age': '30s'});" value="30">30대</option>
-                        <option onclick="dataLayer.push({'Age': '40s'});" value="40">40대</option>
-                        <option onclick="dataLayer.push({'Age': '50s'});" value="50">50대</option>
-                        <option onclick="dataLayer.push({'Age': '60s'});" value="60">60대</option>
-                        <option onclick="dataLayer.push({'Age': '70s'});" value="70">70대</option>
-                        <option onclick="dataLayer.push({'Age': '80s'});" value="80">80대</option>
-                        <option onclick="dataLayer.push({'Age': '90s'});" value="90">90대</option>
-                    </select> -->
-                    <select id="age" onchange="changeFunc();">
+                    <select id="age">
                         <option value="none">선택하기</option>
                         <option value="10s">10대</option>
                         <option value="20s">20대</option>
@@ -310,12 +287,12 @@
                     </select>
                     <div class="row">
                         <div class="col-lg-6 text-center">
-                            <button onclick="dataLayer.push({'Gender': 'male'});" id="content1B1" value="male"><p class="choice_text">남성</p></button>
+                            <button id="content1B1" value="male"><p class="choice_text">남성</p></button>
                         </div>
                         <br>
                         <br>
                         <div class="col-lg-6 text-center">
-                            <button onclick="dataLayer.push({'Gender': 'female'});" id="content1B2" value="female"><p class="choice_text">여성</p></button>
+                            <button id="content1B2" value="female"><p class="choice_text">여성</p></button>
                         </div>
                     </div>
                 </div>
@@ -330,12 +307,12 @@
                     <br>
                     <div class="row">
                         <div class="col-lg-6 text-center">
-                            <button onclick="dataLayer.push({'Question1': 'E'});" id="content1B3" value="E"><p class="choice_text">농장에서 귤 따먹기</p></button>
+                            <button id="content1B3" value="E"><p class="choice_text">농장에서 귤 따먹기</p></button>
                         </div>
                         <br>
                         <br>
                         <div class="col-lg-6 text-center">
-                            <button onclick="dataLayer.push({'Question1': 'I'});" id="content1B4" value="I"><p class="choice_text">집에서 귤 까먹기</p></button>
+                            <button id="content1B4" value="I"><p class="choice_text">집에서 귤 까먹기</p></button>
                         </div>
                     </div>
                 </div>
@@ -349,12 +326,12 @@
                     <br><br>
                     <div class="row">
                         <div class="col-lg-6 text-center">
-                            <button onclick="dataLayer.push({'Question2': 'S'});" id="content1B5" value="S"><p class="choice_text">사과 한박스</p></button>
+                            <button id="content1B5" value="S"><p class="choice_text">사과 한박스</p></button>
                         </div>
                         <br>
                         <br>
                         <div class="col-lg-6 text-center">
-                            <button onclick="dataLayer.push({'Question2': 'N'});" id="content1B6" value="N"><p class="choice_text">희귀 열대과일</p></button>
+                            <button id="content1B6" value="N"><p class="choice_text">희귀 열대과일</p></button>
                         </div>
                     </div>
                 </div>
@@ -368,12 +345,12 @@
                     <br><br>
                     <div class="row">
                         <div class="col-lg-6 text-center">
-                            <button onclick="dataLayer.push({'Question3': 'T'});" id="content1B7" value="T"><p class="choice_text">조금 못생겨도 맛있는 과일이 좋아</p></button>
+                            <button id="content1B7" value="T"><p class="choice_text">조금 못생겨도 맛있는 과일이 좋아</p></button>
                         </div>
                         <br>
                         <br>
                         <div class="col-lg-6 text-center">
-                            <button onclick="dataLayer.push({'Question3': 'F'});" id="content1B8" value="F"><p class="choice_text">무슨 소리야! 보기 좋은 과일이 맛도 좋지</p></button>
+                            <button id="content1B8" value="F"><p class="choice_text">무슨 소리야! 보기 좋은 과일이 맛도 좋지</p></button>
                         </div>
                     </div>
                 </div>
@@ -387,12 +364,12 @@
                     <br><br>
                     <div class="row">
                         <div class="col-lg-6 text-center">
-                            <button onclick="dataLayer.push({'Question4': 'J'});" id="content1B9" value="J"><p class="choice_text">살 과일을 정해놓고 그것만 사러간다</p></button>
+                            <button id="content1B9" value="J"><p class="choice_text">살 과일을 정해놓고 그것만 사러간다</p></button>
                         </div>
                         <br>
                         <br>
                         <div class="col-lg-6 text-center">
-                            <button onclick="dataLayer.push({'Question4': 'P'});" id="content1B10" value="P"><p class="choice_text">가보고 끌리는 과일을 산다</p></button>
+                            <button id="content1B10" value="P"><p class="choice_text">가보고 끌리는 과일을 산다</p></button>
                         </div>
                     </div>
                 </div>
@@ -407,28 +384,28 @@
                     <div class="sns-go">
                         <ul class="share list-inline">
                             <!-- 네이버 블로그 공유 -->
-                            <li class="list-inline-item">
-                                <a href="#" onclick="return a('naver')" target="_blank" alt="Share on Naver" ><img src="./images/sns_naver.png" width="40" alt="네이버 블러그 공유하기"></a>
-                            </li>
+                            <li로 class="list-inline-item">
+                                <a href="#" id="naver" onclick="return a('naver')" target="_blank" alt="Share on Naver" ><img src="./images/sns_naver.png" width="40" alt="네이버 블로그 공유하기"></a>
+                            </li로
                             <!-- 페이스북 공유 -->		
                             <li class="list-inline-item">
-                                <a href="#" onclick="return a('fb')" target="_blank" alt="Share on Facebook" ><img src="./images/sns_face.png" width="40" alt="페이스북 공유하기"></a>
+                                <a href="#" id="facebook" onclick="return a('fb')" target="_blank" alt="Share on Facebook" ><img src="./images/sns_face.png" width="40" alt="페이스북 공유하기"></a>
                             </li>
                             <!-- 트위터 공유 -->		
                             <li class="list-inline-item">
-                                <a href="#" onclick="return a('tw')" target="_blank" alt="Share on Twitter" ><img src="./images/sns_tw.png" width="40" alt="트위터 공유하기"></a>
+                                <a href="#" id="twitter" onclick="return a('tw')" target="_blank" alt="Share on Twitter" ><img src="./images/sns_tw.png" width="40" alt="트위터 공유하기"></a>
                             </li>
                             <!-- 구글 플러스 공유 -->		
                             <li class="list-inline-item">
-                                <a href="#" onclick="return a('google')" target="_blank" alt="Share on Google+"><img src="./images/sns_google.png" width="40" alt="구글 플러스 공유하기"></a>
+                                <a href="#" id="googleplus" onclick="return a('google')" target="_blank" alt="Share on Google+"><img src="./images/sns_google.png" width="40" alt="구글 플러스 공유하기"></a>
                             </li>
-                            <!-- 카카오톡 공유 -->
+                            <!-- 카카오톡 공유
                             <li class="list-inline-item">
                                 <a href="javascript:shareKatalk()"><img src="./images/sns_ka.png" width="40" alt="카카오톡 공유하기"></a>
-                            </li>
+                            </li> -->
                             <!-- 카카오스토리 공유 -->		
                             <li class="list-inline-item">
-                                <a href="#" onclick="return a('story')" target="_blank" alt="Share on kakaostory"><img src="./images/sns_kakao.png" width="40" alt="카카오스토리 공유하기"></a>
+                                <a href="#" id="kakaostory" onclick="return a('story')" target="_blank" alt="Share on kakaostory"><img src="./images/sns_kakao.png" width="40" alt="카카오스토리 공유하기"></a>
                             </li>
                         </ul>
                     </div>
